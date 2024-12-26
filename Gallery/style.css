@@ -1,0 +1,207 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+body{
+    background: black;
+}
+
+
+.portfolioSection{
+    width: 100%;
+    padding: 75px 8% 60px;
+    background-color: var(--bg-clr-two);
+}
+.portfolioSection .portfolioTitle{
+    max-width: 700px;
+    margin: 0px auto;
+    text-align: center;
+}
+.portfolioSection .portfolioTitle h1{
+    position: relative;
+    display: inline-block;
+    font-size: var(--large-heading);
+    color: white;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+}
+.portfolioSection .portfolioTitle h1::before{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    top: 120%;
+    left: 0;
+    background-color: var(--secondary-heading-clr);
+}
+.portfolioSection .portfolioTitle h1::after{
+    content: '';
+    position: absolute;
+    width: 40%;
+    height: 3px;
+    top: calc(120% - 1px);
+    left: 0;
+    background-color: var(--primary-clr);
+}
+.portfolioContents .portfolioBtns{
+    padding: 20px 0px 25px;
+}
+.portfolioContents .portfolioBtns ul{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    list-style: none;
+}
+.portfolioContents .portfolioBtns ul li{
+    display: inline-block;
+    padding: 3px 0px;
+    font-size: 18px;
+    font-weight: 500;
+    color: grey;
+    letter-spacing: 1px;
+    margin: 4px 15px;
+    cursor: pointer;
+    transition: color 0.4s;
+}
+.portfolioContents .portfolioBtns ul li:hover{
+    color: #17a8ec;
+}
+.portfolioContents .portfolioBtns ul li.active{
+    position: relative;
+    color: #17a8ec;
+}
+.portfolioContents .portfolioBtns ul li.active::after{
+    content: '';
+    position: absolute;
+    top: 110%;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: white;
+    animation: portfolioAnimOne 0.4s linear;
+}
+@keyframes portfolioAnimOne{
+    0%{
+        transform: scale(0);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+.portfolioContents .portfolioGallery{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+}
+.portfolioContents .portfolioGallery .card{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    overflow: hidden;
+}
+.portfolioContents .portfolioGallery .card.active{
+    display: block;
+    animation: portfolioAnimTwo 0.3s linear;
+}
+@keyframes portfolioAnimTwo{
+    0%{
+        transform: scale(0.6);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+.portfolioContents .portfolioGallery .card.hide{
+    display: none;
+}
+.portfolioGallery .card .imgBox{
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+.portfolioGallery .card .imgBox img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    cursor: pointer;
+    transition: transform 0.3s linear;
+}
+.portfolioGallery .card:hover .imgBox img{
+    transform: scale(1.1);
+}
+
+.portfolioPopupBox{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.90);
+    z-index: 300;
+    display: none;
+}
+.portfolioPopupBox span{
+    position: absolute;
+    display: inline-block;
+    color: var(--primary-heading-clr);
+    font-size: 50px;
+    font-weight: 900;
+    top: 0;
+    right: 20px;
+    cursor: pointer;
+}
+.portfolioPopupBox img{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 740px;
+    object-fit: cover;
+    display: block;
+    padding: 0px 15px;
+}
+@media(max-width: 668px){
+    .aboutInfo .aboutPersonalInfo{
+        grid-template-columns: 1fr;
+    }
+    .serviceContents .serviceBox{
+        flex-basis: 100%;
+    }
+    .portfolioContents .portfolioGallery{
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+@media(max-width: 568px){
+    .footerSection .footerContents{
+        flex-direction: column;
+    }
+    .footerContents .footerLogo{
+        margin-bottom: 15px;
+    }
+}
+
+@media(max-width: 468px){
+    .reviewContents .reviewCardsWrapper{
+        min-height: 450px;
+    }
+}
+
+@media(max-width: 350px){
+    .aboutContents .aboutImage{
+        min-width: 100%;
+        height: auto;
+    }
+    .reviewContents .reviewCardsWrapper{
+        min-height: 480px;
+    }
+    .contactContentsRow .contactDetails{
+        min-width: 250px;
+    }
+}
